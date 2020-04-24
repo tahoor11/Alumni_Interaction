@@ -1,0 +1,32 @@
+{
+  "name": "alumni_interaction",
+  "version": "1.0.0",
+  "description": "Alumni Interaction is a web application that allows undergraduate students to interact with their Alumni.",
+  "main": "index.html",
+  "scripts": {
+    "start":"npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite":"lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohammed-Tahoor-Ahmed/Alumni_Interaction.git"
+  },
+  "keywords": [
+    "full",
+    "stack",
+    "develoment",
+    "JS",
+    "HTML",
+    "CSS"
+  ],
+  "author": "Mohammed Tahoor Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohammed-Tahoor-Ahmed/Alumni_Interaction/issues"
+  },
+  "homepage": "https://github.com/Mohammed-Tahoor-Ahmed/Alumni_Interaction#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
