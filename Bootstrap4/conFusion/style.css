@@ -1,0 +1,22 @@
+.row-header{
+    background-color: aqua;
+    margin: 0px auto;
+    padding: auto 20px;
+}
+
+.row-content{
+    background-color: cadetblue;
+    margin: 0px 10px;
+    padding: auto 30px;
+    border: 1px ridge #0a3c57;
+}
+
+.container{
+    margin: 10px auto;
+}
+
+.footer{
+    background-color: darkturquoise;
+    margin: 40px 0px 0px 0px;
+    padding: auto 10px;
+}
