@@ -1,0 +1,38 @@
+.row-header {
+    margin: 0px auto;
+    padding: 0px 0px; }
+  
+  .row-content {
+    margin: 0px auto;
+    padding: 50px 0px;
+    border-bottom: 1px ridge; }
+  
+  .footer {
+    background-color: #e1ffc2;
+    margin: 0px auto;
+    padding: 20px 0px; }
+  
+  .jumbotron {
+    margin: 0px auto;
+    padding: 70px 30px;
+    background: #89c9b8;
+    color: floralwhite; }
+  
+  body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0; }
+  
+  .navbar-dark {
+    background-color: #092532; }
+    .carousel {
+        background:#08d9d6; }
+          
+      
+      .modal-content {
+        background: #a3f7bf; }
+        .modal-content .modal-header {
+          background: #05dfd7;
+          color: floralwhite; }
+          .modal-content .modal-header .close {
+            color: floralwhite; }
+      

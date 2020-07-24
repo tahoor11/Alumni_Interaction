@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+
+<head>
+    <title>MJCET Alumni Interaction</title>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- endbuild -->
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand bg-white" href="./index.html"><img src="img/logo.jpg" alt="logo" height="40" width="50"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home text-danger fa-lg"></span>&nbsp;home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./community.html"><span class="fa fa-users text-danger fa-lg"></span>&nbsp;community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info text-danger fa-lg"></span>&nbsp;about</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-comment text-danger fa-lg"></span>&nbsp;feedback</a></li>
+                </ul>
+                <span class="navbar-text">
+                    <a id="button" type="button" class="btn btn-outline-primary">
+                        <span class="fa fa-sign-in"></span> Login / Sign-Up
+                    </a>
+                </span>
+                <span id="loginMsg" class="navbar-text ml-5 d-none">
+                    <h4>Account <i class="fa fa-cog"></i></h4>
+                    <h5 id="loginName">Name</h5>
+                    <button class="btn btn-sm btn-danger" id="signOut">Sign-out</button>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loginModal" class="modal fade ml-0 mr-4" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login / Sign-Up</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Sign-up</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <form>
+                                <div class="row mt-3 mb-3">
+                                    <label for="username" class="form-label col-2">User Name</label>
+                                    <input type="text" class="form-control mr-1 col-5" id="username" name="username" placeholder="Enter User Name">
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <label for="userpassword" class="form-label col-2">Password</label>
+                                    <input type="password" class="form-control mr-1 col-5" id="userpassword" name="password" placeholder="Enter Password">
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <div class="form-group col-sm-auto">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" name="rememberME" id="rememberME" value="rememberME">
+                                            <label class="form-check-label" for="rememberME">Remember me</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="error1" class="row mt-3 mb-3 text-danger">
+
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <button type="button" class="btn btn-secondary btn-sm ml-5 col-2" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-primary btn-sm ml-5 col-2" id="loginBtn">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                            <form id="signup-form">
+                                <div class="row mt-3 mb-3">
+                                    <label for="name" class="form-label col-2">Name</label>
+                                    <input type="text" class="form-control mr-1 col-5" id="name" name="name" placeholder="Enter Your Name">
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <label for="email" class="form-label col-2">Email</label> 
+                                    <input type="text" class="form-control mr-1 col-5" id="email" name="email" placeholder="Enter Your Email">
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <label for="password" class="form-label col-2">Password</label>
+                                    <input type="password" class="form-control mr-1 col-5" id="password" name="password" placeholder="Enter Password">
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <div class="form-check">
+                                        <label for="type" class="form-lable col-2">You Are -</label>
+                                        <label class="col-4 ml-2 form-label">
+                                            <input type="radio" class="form-check-label mr-2" id="student" name="type">Student
+                                        </label>
+                                        <label class="col-4 ml-2 form-label">
+                                            <input type="radio" class="form-check-label mr-2" id="alumni" name="type">Alumni
+                                        </label>
+                                    </div>
+                                </div> 
+                                <div id="error" class="row mt-3 mb-3 text-danger">
+
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <button  class="btn btn-secondary btn-sm ml-5 col-2" data-dismiss="modal">Cancel</button>
+                                    <button  id="signupBtn" class="btn btn-primary btn-sm ml-5 col-2">Sign in</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-12 col-sm-8">
+                    <h1>MJCET Alumni Interaction</h1>
+                    <h4 class=" d-none d-sm-block"><br>" Use each Interaction to be the BEST, MOST powerful version of yourself"</h4>
+                </div>
+                <div class="col-12 col-sm align-self-center">
+                    <img src="img/logo.png" alt="logo" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row mb-5 mt-5">
+            <div class="col">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block img-fluid mx-auto w-100 my-auto" src="img/grad-3.jpg" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                          <p class="display-4 bg-light text-dark">Graduation Day held at Muffakham Jah College</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block img-fluid mx-auto w-100 my-auto" src="img/car.jpg" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <p class="display-4 bg-light text-dark">MJCET students unveil all-terrain vehicle</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block img-fluid mx-auto w-100 my-auto" src="img/grad2.jpg" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                          <h4 class="bg-light text-dark">Students in a jubilant mood during the Graduation Day 2014 ceremony at the Muffakham Jah College of Engineering and Technology.</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h3>News Feed</h3>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-sm-6">
+                <div class="card shadow rounded">
+                    <div class="card-body">
+                      <h5 class="card-title">265 young chess enthusiasts battle it out at state-level tournament in Hyderabad</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">The tournament gave the children a chance to match their skills against players from different districts of Telangana.</h6>
+                      <p class="card-text">HYDERABAD: Chess enthusiasts in the State had a field day on Sunday at the School Students State-level Chess Tournament organised at Muffakham Jah College of Engineering and Technology by The New Indian Express group.There were four categories (under-9, under-11, under-13 and under-15), and three prizes were given in each category. The first, second and third winners in each category were awarded Rs 5,000, Rs 3,000 and Rs 2,000, respectively, along with trophies.As many as 265 students took part in the competition.</p>
+                      <a href="https://www.newindianexpress.com/cities/hyderabad/2019/nov/25/265-young-chess-enthusiasts-battle-it-out-at-state-level-tournament-in-hyderabad-2066635.html" class="card-link" target="_bla">Go to Source</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="card shadow rounded">
+                    <div class="card-body">
+                      <h5 class="card-title">NPTEL online programme certifies teachers, students of MJCET</h5>
+                      <h6 class="card-subtitle mb-2 text-muted"> Jah College of Engineering and Technology (MJCET), Banjara Hills organised Annual Event of NPTEL (National Programme on Technical Enhanced Learning) MJCET Local Chapter (LC) on Wednesday</h6>
+                      <p class="card-text">The All India Council for Technical Education (AICTE) has approved advanced NPTEL online certification programmes for Faculty Development Programme (FDP) for engineering college faculty. NPTEL offers a wide variety of courses and faculty can also de courses from other discipline. Courses on of cutting edge technology such as Block Chain Management, Deep Learning, IoT and Smart Cities would also be offered.                    </p>
+                      <a href="https://www.siasat.com/nptel-online-programme-certifies-teachers-students-mjcet-1742602/" class="card-link" target="_blank">Go To Source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-sm-6">
+                <div class="card shadow rounded">
+                    <div class="card-body">
+                      <h5 class="card-title">Hack revolution held at MJCET</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Muffakham Jah College of Engineering and Technology (MJCET) organised Hackathon named Hack Revolution on Saturday last on its campus as a part of nationwide Smart India Hackathon 2020, initiative by the All India Council of Technical Education (AICTE) and MHRD</h6>
+                      <p class="card-text">The MJ-Hack Revolution (hackathon) was a weekend dedicated to developers and programmers to collaborate and build creative solutions to the problem while pushing the limits of their mind and into creating mind-blowing innovations. The event was a huge success with over 267 participations in form of 59 teams from the most distinguished colleges all across the city including CBIT, University of Hyderabad, Deccan College, etc. The event was 15-hour long Coding Marathon.</p>
+                      <a href="https://www.thehansindia.com/hans/young-hans/hyderabad-hack-revolution-held-at-mjcet-598932" class="card-link" target="_blank">Go To Source</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="card shadow rounded">
+                    <div class="card-body">
+                      <h5 class="card-title">Students of MJCET create all-terrain vehicle for SAE-BAJA event</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">The students of Muffakham Jah College of Engineering and Technology (MJCET) has designed and fabricated all-terrain vehicle for SAE-BAJA 2020 competition to be held at Indore in Madhya Pradesh and the team of MJCET would be leaving for the competition on January 15.</h6>
+                      <p class="card-text">The team of 25 mechanical and production engineering students of MJCET has made this vehicle with the cost of Rs. 5 lakh funded by the Sultan-ul-Uloom Education Society. On Friday, the Chairman and the Secretary of Sultan-ul-Uloom Education Society have flagged off and unveiled the vehicle at MJCET.
+
+                        Captain of team cum driver Murtuza Khan informs that the vehicles have been designed by using Briggs, Stratton engine, Fox suspension, special alloy and steel material for roll cage fabrication to enhance the vehicle performance. The net weight of the vehicle is 180 kg and runs at about 60 KMPH at full throttle</p>
+                      <a href="https://www.siasat.com/students-mjcet-create-all-terrain-vehicle-sae-baja-event-1788541/" class="card-link" target="_blank">Go To Source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Post a Blog</h3>
+        </div>
+        <div class="row">
+            <form id="blog">
+                <div class="row mb-2">
+                    <label class="col-1 form-label">Title-</label>
+                    <input class="col-5 form-control" id="title">
+                    <label class="col-2 form-label">Blogged By-</label>
+                    <input class="col-3 form-control" id="author">
+                </div>        
+                <div class="row mb-2">
+                    <label class="col-12 form-label">Content -</label>
+                    <textarea rows="4" cols="100" id="blog-text" class="ml-4"></textarea> 
+                </div>
+                <div class="form-group-row">
+                    <button type="submit" class="btn btn-primary mb-5" id="blog-submit">Post</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <h4 class="mb-3">Recent Posts ---</h4>
+        </div>
+        <div class="row mb-6" id="blogs">
+
+        </div>
+
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">             
+                <div class="col-12">
+                    <h5>Links</h5>
+                    <a href="./index.html" class="mr-3">home</a>
+                    <a href="./aboutus.html" class="mr-3">about</a>
+                    <a href="./community.html" class="mr-3">community</a>
+                    <a href="./contactus.html" class="mr-3">feedback</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
